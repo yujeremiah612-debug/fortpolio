@@ -36,7 +36,6 @@ export default function Ascent() {
   const chapterRefs = useRef<(HTMLDivElement | null)[]>([])
   const [stage, setStage] = useState(0)
   const [alt, setAlt] = useState(0)
-  const [progress, setProgress] = useState(0)
 
   useLayoutEffect(() => {
     const track = trackRef.current
@@ -47,7 +46,6 @@ export default function Ascent() {
 
     const applyProgress = (p: number) => {
       ascent.progress = p
-      setProgress(p)
 
       const idx = Math.min(n - 1, Math.floor(p * n + 0.0001))
       setStage(idx)
