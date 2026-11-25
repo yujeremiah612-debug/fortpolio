@@ -1,6 +1,5 @@
 import { useLayoutEffect, useRef, useState } from 'react'
 import { ArrowLink } from '../components/ui'
-import ChaseArrows from '../components/ChaseArrows'
 import { gsap, ScrollTrigger } from '../lib/gsap'
 import { ascent, STAGES } from '../lib/ascent'
 import { scrollToTarget } from '../hooks/useSmoothScroll'
@@ -151,9 +150,6 @@ export default function Ascent() {
 
       {/* FIXED cinematic overlay */}
       <div ref={overlayRef} className="pointer-events-none fixed inset-0 z-20">
-        {/* chasing arrows — intro stream that fades as you ascend */}
-        <ChaseArrows progress={progress} />
-
         {/* giant brand — depth layer behind copy */}
         <div
           ref={brandRef}
