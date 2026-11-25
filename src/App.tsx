@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import CustomCursor from './components/CustomCursor'
-import ChaseArrows from './components/ChaseArrows'
+import MouseXray from './components/MouseXray'
 import Home from './pages/Home'
 import ProjectPage from './pages/ProjectPage'
 import { useSmoothScroll } from './hooks/useSmoothScroll'
@@ -13,7 +13,7 @@ export default function App() {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '') || '/'}>
       <CustomCursor />
-      <ChaseArrows />
+      <MouseXray />
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from '../lib/gsap'
+import ChaseArrows from './ChaseArrows'
 
 export default function Loader({ onDone }: { onDone: () => void }) {
   const rootRef = useRef<HTMLDivElement>(null)
+  const orbitRef = useRef<HTMLDivElement>(null)
   const [count, setCount] = useState(0)
 
   useEffect(() => {
@@ -47,19 +49,24 @@ export default function Loader({ onDone }: { onDone: () => void }) {
       className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-void"
       aria-hidden
     >
-      <div className="display flex overflow-hidden text-[13vw] leading-none font-medium tracking-tight text-white md:text-[7vw]">
-        {'JEREMIAH'.split('').map((l, i) => (
-          <span key={i} className="loader-letter inline-block">
-            {l}
-          </span>
-        ))}
+      {/* orbit target: name + status — dragon coils around this whole block */}
+      <div ref={orbitRef} className="relative z-10 flex flex-col items-center">
+        <div className="display flex overflow-hidden text-[13vw] leading-none font-medium tracking-tight text-white md:text-[7vw]">
+          {'JEREMIAH'.split('').map((l, i) => (
+            <span key={i} className="loader-letter inline-block">
+              {l}
+            </span>
+          ))}
+        </div>
+        <div className="mt-8 h-px w-56 overflow-hidden bg-white/10">
+          <div className="loader-bar h-full w-full origin-left scale-x-0 bg-glacier" />
+        </div>
+        <div className="mt-4 font-mono text-[11px] tracking-[0.4em] text-mist">
+          {String(count).padStart(3, '0')} — ENTERING EXPERIENCE
+        </div>
       </div>
-      <div className="mt-8 h-px w-56 overflow-hidden bg-white/10">
-        <div className="loader-bar h-full w-full origin-left scale-x-0 bg-glacier" />
-      </div>
-      <div className="mt-4 font-mono text-[11px] tracking-[0.4em] text-mist">
-        {String(count).padStart(3, '0')} — ENTERING EXPERIENCE
-      </div>
+
+      <ChaseArrows targetRef={orbitRef} />
     </div>
   )
 }
