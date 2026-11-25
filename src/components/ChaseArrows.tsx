@@ -3,7 +3,7 @@ import { gsap } from '../lib/gsap'
 
 const COUNT = 40
 /** rumble duration before the dragon settles into orbit (ms) */
-const RUMBLE_MS = 1400
+const RUMBLE_MS = 1800
 
 type Particle = {
   x: number

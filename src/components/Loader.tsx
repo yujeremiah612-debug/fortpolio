@@ -23,20 +23,22 @@ export default function Loader({ onDone }: { onDone: () => void }) {
     tl.fromTo(
       '.loader-letter',
       { yPercent: 120, opacity: 0 },
-      { yPercent: 0, opacity: 1, duration: 0.9, stagger: 0.055, ease: 'power4.out' },
+      { yPercent: 0, opacity: 1, duration: 1.15, stagger: 0.07, ease: 'power4.out' },
     )
       .to(
         counter,
         {
           v: 100,
-          duration: 1.6,
+          duration: 2.6,
           ease: 'power2.inOut',
           onUpdate: () => setCount(Math.round(counter.v)),
         },
-        '<0.2',
+        '<0.25',
       )
-      .to('.loader-bar', { scaleX: 1, duration: 1.6, ease: 'power2.inOut' }, '<')
-      .to('.loader-letter', { opacity: 0.25, duration: 0.4, stagger: 0.03 }, '>-0.1')
+      .to('.loader-bar', { scaleX: 1, duration: 2.6, ease: 'power2.inOut' }, '<')
+      .to('.loader-letter', { opacity: 0.25, duration: 0.55, stagger: 0.04 }, '>-0.15')
+      // brief hold on 100 — ENTERING EXPERIENCE before wipe
+      .to({}, { duration: 0.7 })
 
     return () => {
       tl.kill()
