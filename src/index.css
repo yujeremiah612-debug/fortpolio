@@ -9,6 +9,9 @@
   --color-silver: #d4d4dc;
   --color-glacier: #7db4ff;
   --color-glacier-dim: #3a6ea8;
+  --color-ember: #ff6a14;
+  --color-flame: #ffb020;
+  --color-spark: #ffe28a;
 
   --font-display: 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
@@ -122,25 +125,33 @@ body {
     transform: translate(-50%, -50%);
   }
   .cursor-dot {
-    width: 5px;
-    height: 5px;
-    background: #fff;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle at 35% 30%, #ffe28a 0%, #ffb020 45%, #ff6a14 100%);
+    box-shadow:
+      0 0 10px rgba(255, 160, 30, 0.85),
+      0 0 22px rgba(255, 90, 10, 0.45);
   }
   .cursor-ring {
-    width: 34px;
-    height: 34px;
-    border: 1px solid rgba(255, 255, 255, 0.28);
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 170, 40, 0.45);
+    box-shadow: 0 0 18px rgba(255, 110, 20, 0.18);
     transition:
       width 0.3s ease,
       height 0.3s ease,
       border-color 0.3s ease,
-      background-color 0.3s ease;
+      background-color 0.3s ease,
+      box-shadow 0.3s ease;
   }
   .cursor-ring.is-hover {
     width: 58px;
     height: 58px;
-    border-color: rgba(125, 180, 255, 0.6);
-    background: rgba(125, 180, 255, 0.06);
+    border-color: rgba(255, 190, 60, 0.75);
+    background: rgba(255, 120, 20, 0.1);
+    box-shadow:
+      0 0 24px rgba(255, 140, 20, 0.35),
+      0 0 48px rgba(255, 70, 0, 0.18);
   }
 }
 

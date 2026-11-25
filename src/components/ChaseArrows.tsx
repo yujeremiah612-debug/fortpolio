@@ -137,11 +137,19 @@ export default function ChaseArrows({
           ref={(el) => {
             arrowsRef.current[i] = el
           }}
-          className={`absolute top-0 left-0 will-change-transform ${
-            i % 3 === 0 ? 'text-white/70' : 'text-glacier'
-          }`}
+          className="absolute top-0 left-0 will-change-transform"
           style={{
             fontSize: `${18 - Math.min(9, i * 0.22)}px`,
+            color:
+              i % 4 === 0
+                ? 'rgba(255, 236, 160, 0.95)'
+                : i % 4 === 1
+                  ? 'rgba(255, 170, 40, 0.9)'
+                  : i % 4 === 2
+                    ? 'rgba(255, 110, 20, 0.88)'
+                    : 'rgba(255, 70, 10, 0.82)',
+            textShadow:
+              '0 0 10px rgba(255, 140, 0, 0.55), 0 0 22px rgba(255, 80, 0, 0.35)',
             filter: i > 26 ? 'blur(0.45px)' : undefined,
           }}
         >

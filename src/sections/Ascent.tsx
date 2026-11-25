@@ -144,7 +144,7 @@ export default function Ascent() {
   return (
     <>
       {/* scroll distance for the climb */}
-      <div ref={trackRef} id="hero" className="relative h-[1000vh]" />
+      <div ref={trackRef} id="hero" className="relative h-[1250vh]" />
 
       {/* FIXED cinematic overlay */}
       <div ref={overlayRef} className="pointer-events-none fixed inset-0 z-20">
